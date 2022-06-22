@@ -10,9 +10,10 @@ function ProductCard(props) {
           className="w-full h-80 rounded-md"
         />
       </div>
-      <div className="text-brand-red py-3 pl-4 ">
-        <h5 className="font-bold">{props.name}</h5>
-        <span>Rp {props.price}</span>
+      <div className="text-[#613D2B] py-3 pl-4">
+        <h5 className="font-bold py-1">{props.name}</h5>
+        <h5 className="font-bold text-sm py-1">stock : {props.stock}</h5>
+        <span className="py-1">Rp {props.price}</span>
       </div>
     </div>
   );

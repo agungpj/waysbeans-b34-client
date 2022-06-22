@@ -1,6 +1,7 @@
 import { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { globalTitle } from "../components/App";
+import { useLocation } from "react-router-dom";
 
 import TransactionCard from "../components/TransactionCard";
 
@@ -10,6 +11,7 @@ import { ProcessOrderContext } from "../contexts/OrderContext";
 import { uploads } from "../exports";
 
 export default function MyProfile() {
+  const location = useLocation();
   const [state, dispatch] = useContext(UserContext);
   const [processOrder, setProcessOrder] = useContext(ProcessOrderContext);
 
@@ -17,13 +19,14 @@ export default function MyProfile() {
 
   useEffect(() => {
     document.title = globalTitle + "My Profile";
+    console.log(location);
   }, []);
 
   return (
     <div className="lg:flex justify-between mx-4 lg:mx-28 my-10">
       <div className="w-full lg:w-1/2 mb-10 lg:mb-0">
         <div className="flex space-x-6">
-          <h3 className="text-3xl font-['Avenir-Black'] font-extrabold text-brand-red mb-8">
+          <h3 className="text-3xl font-['Avenir-Black'] font-extrabold text-[#613D2B] mb-8">
             My Profile
           </h3>
           <Link to="/profile/edit">
@@ -82,15 +85,17 @@ export default function MyProfile() {
       </div>
       <div className="w-full lg:w-1/2">
         <div>
-          <h3 className="text-3xl font-['Avenir-Black'] font-extrabold text-brand-red">
+          <h3 className="text-3xl font-['Avenir-Black'] font-extrabold text-[#613D2B]">
             Ongoing Transaction
           </h3>
           {processOrder.length > 0 ? (
             <div className="lg:flex justify-between my-8 bg-brand-pink rounded-lg p-4">
-              <TransactionCard />
+              <TransactionCard
+                qrlink={`http://localhost:3000${location.pathname}`}
+              />
             </div>
           ) : (
-            <div className="py-5 text-brand-red">
+            <div className="py-5 text-[#613D2B]">
               <p className="text-lg mb-4">No Ongoing Transaction.</p>
               {state.user.order.length > 0 ? (
                 <Link to="/my-cart" className="hover:underline">

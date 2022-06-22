@@ -15,10 +15,12 @@ export default function AddProduct() {
   const [form, setForm] = useState({
     title: "",
     price: "",
+    desc: "",
+    stock: "",
     image: "",
   });
 
-  const { title, price, image } = form;
+  const { title, price, desc, stock, image } = form;
 
   // Handle change data on form
   const handleChange = (e) => {
@@ -49,7 +51,9 @@ export default function AddProduct() {
       // Store data with FormData as object
       const formData = new FormData();
       formData.set("title", form.title);
+      formData.set("desc", form.desc);
       formData.set("price", form.price);
+      formData.set("stock", form.stock);
       formData.set("image", form.image[0], form.image[0].name);
 
       // Insert product data
@@ -108,6 +112,24 @@ export default function AddProduct() {
             value={title}
             required
             placeholder="Product Name"
+            className="w-full p-3 outline outline-2 outline-red-500 focus:outline-red-700 rounded-md bg-pink-100"
+          />
+          <input
+            type="text"
+            name="desc"
+            onChange={handleChange}
+            value={desc}
+            required
+            placeholder="Product Name"
+            className="w-full p-3 outline outline-2 outline-red-500 focus:outline-red-700 rounded-md bg-pink-100"
+          />
+          <input
+            type="number"
+            name="stock"
+            onChange={handleChange}
+            value={stock}
+            required
+            placeholder="Price (Rp.)"
             className="w-full p-3 outline outline-2 outline-red-500 focus:outline-red-700 rounded-md bg-pink-100"
           />
           <input

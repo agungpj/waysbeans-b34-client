@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import formatThousands from "format-thousands";
 import dateFormat from "dateformat";
@@ -12,9 +12,10 @@ import { TransactionModalContext } from "../contexts/ModalContext";
 
 import { LogoWhite, QRImg } from "../exports/exportImages";
 import { uploads } from "../exports";
-
-export default function TransactionCard() {
+import QRCode from "qrcode";
+export default function TransactionCard({ qrlink }) {
   let navigate = useNavigate();
+  const [src, setSrc] = useState("");
   const [state, dispatch] = useContext(UserContext);
   const [processOrder, setProcessOrder] = useContext(ProcessOrderContext);
   const [transaction, setTransaction] = useContext(TransactionContext);
@@ -84,6 +85,13 @@ export default function TransactionCard() {
     }
   };
 
+  useEffect(() => {
+    // console.log(location);
+    QRCode.toDataURL(qrlink).then((data) => {
+      setSrc(data);
+    });
+  }, [src]);
+
   return (
     <>
       <div className="w-full lg:w-8/12 space-y-4 mb-4 lg:mb-0">
@@ -94,7 +102,7 @@ export default function TransactionCard() {
               alt="product"
               className="w-3/12"
             />
-            <div className="text-brand-red font-['Avenir-Book'] space-y-4 ml-2">
+            <div className="text-[#613D2B] font-['Avenir-Book'] space-y-4 ml-2">
               <h4 className="text-md font-['Avenir-Black'] font-bold">
                 {item.product.title} X {item.qty}
               </h4>
@@ -113,7 +121,7 @@ export default function TransactionCard() {
       </div>
       <div className="flex flex-row lg:flex-col justify-between lg:justify-start items-center lg:space-y-4">
         <img src={LogoWhite} alt="" className="" />
-        <img src={QRImg} alt="" />
+        <img src={src} alt="qrcode" />
         <div className="space-y-4 flex flex-col items-center">
           <p
             className={
@@ -157,7 +165,7 @@ export default function TransactionCard() {
               <button
                 type="button"
                 onClick={() => setOpen(false)}
-                className="bg-brand-red text-white hover:bg-red-500 transition duration-300 text-xs text-center font-bold px-5 py-3 rounded-md w-1/2"
+                className="bg-[#613D2B] text-white hover:bg-red-500 transition duration-300 text-xs text-center font-bold px-5 py-3 rounded-md w-1/2"
               >
                 No
               </button>

@@ -1,5 +1,5 @@
-import LogoWhite from "../assets/images/logo/logo-white.png";
-import LogoBlack from "../assets/images/logo/logo-black.png";
+import LogoWhite from "../assets/images/logo/Icon.svg";
+import LogoBlack from "../assets/images/logo/Icon.svg";
 
 import BasketIcon from "../assets/images/icons/basket.png";
 import CancelIcon from "../assets/images/icons/cancel.png";
@@ -11,8 +11,7 @@ import ToppingIcon from "../assets/images/icons/topping-icon.png";
 import UploadIcon from "../assets/images/icons/upload.png";
 import userIcon from "../assets/images/icons/user-icon.png";
 
-import JumbotronBg from "../assets/images/jumbotron/jumbotron.png";
-import JumbotronImg from "../assets/images/jumbotron/jumbotron-img.png";
+import JumbotronBg from "../assets/images/jumbotron/Jumbotron.svg";
 
 import IceCoffeePalmSugar from "../assets/images/products/ice-coffee-palm-sugar.png";
 import IceCoffeeGreenTea from "../assets/images/products/ice-coffee-green-tea.png";
@@ -29,7 +28,6 @@ import MatchaCantaloupe from "../assets/images/toppings/matcha-cantaloupe.png";
 import StrawberryPopping from "../assets/images/toppings/strawberry-popping.png";
 
 import UserImg from "../assets/images/users/user.png";
-import AdminImg from "../assets/images/users/admin.png";
 
 import QRImg from "../assets/images/qr.png";
 
@@ -46,7 +44,6 @@ export {
   UploadIcon,
   userIcon,
   JumbotronBg,
-  JumbotronImg,
   IceCoffeePalmSugar,
   IceCoffeeGreenTea,
   HanamiLatte,
@@ -60,6 +57,5 @@ export {
   MatchaCantaloupe,
   StrawberryPopping,
   UserImg,
-  AdminImg,
   QRImg,
 };

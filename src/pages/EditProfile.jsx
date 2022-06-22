@@ -85,7 +85,7 @@ export default function EditProfile() {
   };
   return (
     <div className="my-14 mx-4 lg:mx-40">
-      <h3 className="text-3xl font-['Avenir-Black'] font-extrabold text-brand-red mb-8">
+      <h3 className="text-3xl font-['Avenir-Black'] font-extrabold text-[#613D2B] mb-8">
         Edit Profile
       </h3>
       <form onSubmit={handleSubmit}>
@@ -100,7 +100,7 @@ export default function EditProfile() {
             onInput={(e) => e.target.setCustomValidity("")}
             placeholder="Full Name"
             value={fullname}
-            className="w-full p-3 outline outline-2 outline-red-500 focus:outline-red-700 rounded-md bg-pink-100"
+            className="w-full p-3 outline outline-2 outline-red focus:outline-red rounded-md bg-white"
           />
           <input
             type="email"
@@ -112,7 +112,7 @@ export default function EditProfile() {
             onInput={(e) => e.target.setCustomValidity("")}
             placeholder="Email"
             value={email}
-            className="w-full p-3 outline outline-2 outline-red-500 focus:outline-red-700 rounded-md bg-pink-100"
+            className="w-full p-3 outline outline-2 outline-red focus:outline-[#613D2B] rounded-md bg-white"
           />
           <input
             type="tel"
@@ -121,13 +121,13 @@ export default function EditProfile() {
             onChange={handleChange}
             placeholder="Phone"
             value={phone}
-            className="w-full p-3 outline outline-2 outline-red-500 focus:outline-red-700 rounded-md bg-pink-100"
+            className="w-full p-3 outline outline-2 outline-red focus:outline-[#613D2B] rounded-md bg-white"
           />
           <textarea
             name="address"
             id="address"
             onChange={handleChange}
-            className="w-full p-3 outline outline-2 outline-red-500 focus:outline-red-700 rounded-md bg-pink-100"
+            className="w-full p-3 outline outline-2 outline-red focus:outline-[#613D2B] rounded-md bg-white"
             rows={5}
             placeholder="Address"
             value={address}
@@ -135,7 +135,7 @@ export default function EditProfile() {
         </div>
         <button
           type="submit"
-          className="w-full py-2 rounded-md text-white text-center bg-brand-red"
+          className="w-full py-2 rounded-md text-white text-center bg-[#613D2B]"
         >
           Save Profile Changes
         </button>

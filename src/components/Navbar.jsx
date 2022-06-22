@@ -2,7 +2,7 @@ import { Fragment, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Menu, Transition } from "@headlessui/react";
 import urlSlug from "url-slug";
-
+import defaultUser from "../assets/images/default-user.png";
 import {
   AdminContext,
   LoginContext,
@@ -20,6 +20,7 @@ import {
   LogoWhite,
   ToppingIcon,
   userIcon,
+  UserImg,
 } from "../exports/exportImages";
 import { OrderContext } from "../contexts/OrderContext";
 import { TransactionContext } from "../contexts/TransactionContext";
@@ -53,7 +54,8 @@ function Navbar() {
           <>
             <p
               className={
-                (admin ? null : "sr-only lg:not-sr-only ") + "text-brand-red"
+                (admin ? null : "sr-only lg:not-sr-only ") +
+                "text-brand-[#613D2B]"
               }
             >
               Welcome,{admin ? " Admin " : null} {state.user.fullname}!
@@ -61,11 +63,11 @@ function Navbar() {
             {admin ? null : (
               <Link to="/my-cart" className="relative">
                 <img src={BasketIcon} alt="shopping-basket" />
-                {/* {order.length > 0 ? (
-                  <div className="w-5 h-5 text-xs text-white font-bold bg-red-600 rounded-full absolute -right-2 -top-1 flex justify-center items-center">
+                {order.length > 0 ? (
+                  <div className="w-5 h-5 text-xs text-white font-bold bg-[#613D2B] rounded-full absolute -right-2 -top-1 flex justify-center items-center">
                     {order.length}
                   </div>
-                ) : null} */}
+                ) : null}
               </Link>
             )}
             <Menu as="div" className="relative z-10">
@@ -73,15 +75,9 @@ function Navbar() {
                 <Menu.Button>
                   <span className="sr-only">Open user menu</span>
                   <img
-                    src={
-                      admin
-                        ? LogoBlack
-                        : uploads +
-                          "waysbucks_media/" +
-                          state.user.profile.image
-                    }
+                    src={admin ? defaultUser : defaultUser}
                     alt="user"
-                    className="max-h-14 w-14 object-cover rounded-full border-2 border-brand-red"
+                    className="max-h-14 w-14  object-cover rounded-full border-2 border-brand-red"
                   />
                 </Menu.Button>
               </div>
@@ -112,20 +108,33 @@ function Navbar() {
                       </Menu.Item>
                       <Menu.Item>
                         <Link
-                          to="/add-topping"
+                          to="#"
                           className="p-4 flex items-center hover:bg-gray-100"
                         >
                           <img
                             src={ToppingIcon}
                             className="w-5 mr-2"
-                            alt="topping"
+                            alt="complain"
                           />
-                          Add Topping
+                          Complain
                         </Link>
                       </Menu.Item>
                     </>
                   ) : (
                     <>
+                      <Menu.Item>
+                        <Link
+                          to={"#"}
+                          className="p-4 flex items-center hover:bg-gray-100"
+                        >
+                          <img
+                            src={ToppingIcon}
+                            className="w-5 mr-2"
+                            alt="complain"
+                          />
+                          Complain
+                        </Link>
+                      </Menu.Item>
                       <Menu.Item>
                         <Link
                           to={"/profile/" + urlSlug(state.user.fullname)}
@@ -156,7 +165,7 @@ function Navbar() {
           <>
             <button
               type="button"
-              className="rounded px-3 lg:px-5 py-1 text-brand-red border-2 text-[Product-Sans] border-brand-red box-border"
+              className="rounded px-3 lg:px-5 py-1 text-[#613d2b]  border-2 text-[Product-Sans] border-[#613D2B] box-border"
               onClick={() => {
                 setOpen(!open);
                 setRegistered(true);
@@ -166,7 +175,7 @@ function Navbar() {
             </button>
             <button
               type="button"
-              className="rounded px-3 lg:px-5 py-1 text-white border-2 border-brand-red bg-brand-red"
+              className="rounded px-3 lg:px-5 py-1 text-white border-2 border-[#613D2B] bg-[#613D2B]"
               onClick={() => {
                 setOpen(true);
                 setRegistered(false);

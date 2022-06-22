@@ -29,6 +29,7 @@ export default function TransactionsTable() {
 
   useEffect(() => {
     getTransactions();
+    console.log(transactions);
     return () => {
       setTransactions([]);
     };
@@ -124,7 +125,7 @@ export default function TransactionsTable() {
   return (
     <>
       <div className="my-10 font-['Avenir-Book']">
-        <h3 className="mx-4 lg:mx-32 text-brand-red text-3xl font-['Avenir-Black'] mb-10">
+        <h3 className="mx-4 lg:mx-32 text-[#613D2B] text-3xl font-['Avenir-Black'] mb-10">
           Income Transaction
         </h3>
         <div className="lg:mx-10 mx-4 flex justify-start overflow-x-auto">
@@ -149,12 +150,7 @@ export default function TransactionsTable() {
                 >
                   Address
                 </th>
-                <th
-                  scope="col"
-                  className="px-4 py-2 text-left text-base font-['Avenir-Black'] text-black tracking-wider"
-                >
-                  Attachment
-                </th>
+
                 <th
                   scope="col"
                   className="px-4 py-2 text-left text-base font-['Avenir-Black'] text-black tracking-wider"
@@ -193,15 +189,7 @@ export default function TransactionsTable() {
                   <td className="px-4 py-2 whitespace-nowrap">
                     {transaction.address}
                   </td>
-                  <td className="px-4 py-2 whitespace-nowrap flex justify-center">
-                    <a href={transaction.attachment} target="blank">
-                      <img
-                        src={transaction.attachment}
-                        className="max-h-16"
-                        alt=""
-                      />
-                    </a>
-                  </td>
+
                   <td className="px-4 py-2 whitespace-nowrap">
                     <a href={"tel:" + transaction.phone}>{transaction.phone}</a>
                   </td>

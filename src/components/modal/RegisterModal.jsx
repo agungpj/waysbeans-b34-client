@@ -81,7 +81,7 @@ export default function RegisterModal() {
     } catch (error) {
       const alert = (
         <div
-          className="flex justify-center items-center rounded-md text-red-600 border border-red-600 text-sm font-bold px-4 py-3"
+          className="flex justify-center items-center rounded-md text-[#613D2B] border border-[#613D2B] text-sm font-bold px-4 py-3"
           role="alert"
         >
           <p>Register Failed. Try Again</p>
@@ -96,7 +96,7 @@ export default function RegisterModal() {
     <>
       <div>
         <img className="mx-auto h-12 w-auto" src={LogoWhite} alt="Workflow" />
-        <h2 className="mt-6 text-center text-3xl font-extrabold text-brand-red">
+        <h2 className="mt-6 text-center text-3xl font-extrabold text-[#613D2B]">
           Register
         </h2>
       </div>
@@ -115,7 +115,7 @@ export default function RegisterModal() {
               value={fullname}
               onChange={handleChange}
               required
-              className="appearance-none rounded-md shadow-sm relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-red-500 focus:border-red-500 focus:z-10 sm:text-sm mb-4"
+              className="appearance-none rounded-md shadow-sm relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-[#613D2B] focus:border-[#613D2B] focus:z-10 sm:text-sm mb-4"
               placeholder="Full Name"
             />
           </div>
@@ -154,11 +154,11 @@ export default function RegisterModal() {
         <div className="text-center mt-4">
           <button
             type="submit"
-            className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-red-600 hover:bg-brand-red focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-[#613D2B] hover:bg-[#4c3023] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
           >
             <span className="absolute left-0 inset-y-0 flex items-center pl-3">
               <LockClosedIcon
-                className="h-5 w-5 text-red-500 group-hover:text-red-400"
+                className="h-5 w-5 text-white group-hover:text-[#d5d5d5]"
                 aria-hidden="true"
               />
             </span>

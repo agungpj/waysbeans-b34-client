@@ -70,7 +70,7 @@ export default function LoginModal() {
     } catch (error) {
       const alert = (
         <div
-          className="flex items-center text-red-500 border border-red-500 rounded-lg py-2 text-md justify-center font-bold"
+          className="flex items-center text-[#613D2B] border border-[#613D2B] rounded-lg py-2 text-md justify-center font-bold"
           role="alert"
         >
           <p>Failed to login. Try Again</p>
@@ -85,7 +85,7 @@ export default function LoginModal() {
     <>
       <div>
         <img className="mx-auto h-12 w-auto" src={LogoWhite} alt="Workflow" />
-        <h2 className="mt-6 text-center text-3xl font-extrabold text-brand-red">
+        <h2 className="mt-6 text-center text-3xl font-extrabold text-[#613D2B]">
           Login
         </h2>
       </div>
@@ -102,7 +102,7 @@ export default function LoginModal() {
               type="email"
               value={email}
               onChange={handleChange}
-              className="appearance-none rounded-md shadow-sm relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-red-500 focus:border-red-500 focus:z-10 sm:text-sm"
+              className="appearance-none rounded-md shadow-sm relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-[#613D2B] focus:border-[#613D2B] focus:z-10 sm:text-sm"
               placeholder="Email"
             />
           </div>
@@ -116,17 +116,17 @@ export default function LoginModal() {
               type="password"
               value={password}
               onChange={handleChange}
-              className="appearance-none rounded-md shadow-sm relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-red-500 focus:border-red-500 focus:z-10 sm:text-sm"
+              className="appearance-none rounded-md shadow-sm relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-[#613D2B] focus:border-[#613D2B] focus:z-10 sm:text-sm"
               placeholder="Password"
             />
           </div>
         </div>
 
         <div className="text-center">
-          <button className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-red-600 hover:bg-brand-red focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+          <button className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-[#613D2B] hover:bg-[#583524] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
             <span className="absolute left-0 inset-y-0 flex items-center pl-3">
               <LockClosedIcon
-                className="h-5 w-5 text-red-500 group-hover:text-red-400"
+                className="h-5 w-5 text-[#fff] group-hover:text-[#ddd]"
                 aria-hidden="true"
               />
             </span>

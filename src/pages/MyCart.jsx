@@ -25,25 +25,24 @@ function MyCart() {
     phone: state.user.profile.phone ? state.user.profile.phone : "",
     address: state.user.profile.address ? state.user.profile.address : "",
     totalPrice: total,
-    attachment: "",
+    // attachment: "",
   });
 
   let navigate = useNavigate();
 
-  const { fullname, email, phone, address, totalPrice, attachment } = form;
+  const { fullname, email, phone, address, totalPrice } = form;
 
   const handleChange = (e) => {
     setForm({
       ...form,
-      [e.target.name]:
-        e.target.type === "file" ? e.target.files : e.target.value,
+      [e.target.name]: e.target.value,
     });
 
     // Create image url for preview
-    if (e.target.type === "file") {
-      let url = URL.createObjectURL(e.target.files[0]);
-      setPreview(url);
-    }
+    // if (e.target.type === "file") {
+    //   let url = URL.createObjectURL(e.target.files[0]);
+    //   setPreview(url);
+    // }
   };
 
   const handleSubmit = async (e) => {
@@ -53,7 +52,7 @@ function MyCart() {
       // Configuration
       const config = {
         headers: {
-          "Content-type": "multipart/form-data",
+          "Content-type": "application/json",
         },
       };
 
@@ -61,15 +60,17 @@ function MyCart() {
         .map((item) => item.price)
         .reduce((prev, next) => prev + next);
 
-      const formData = new FormData();
-      formData.set("fullname", form.fullname);
-      formData.set("email", form.email);
-      formData.set("phone", form.phone);
-      formData.set("address", form.address);
-      formData.set("totalPrice", form.totalPrice);
-      formData.set("attachment", form.attachment[0], form.attachment[0].name);
+      // const formData = new FormData();
+      // formData.set("fullname", form.fullname);
+      // formData.set("email", form.email);
+      // formData.set("phone", form.phone);
+      // formData.set("address", form.address);
+      // formData.set("totalPrice", form.totalPrice);
+      // formData.set("attachment", form.attachment[0], form.attachment[0].name);
 
-      const response = await API.post("/transaction", formData, config);
+      const body = JSON.stringify(form);
+
+      const response = await API.post("/transaction", body, config);
       console.log(response);
 
       setOpen(!open);
@@ -134,7 +135,7 @@ function MyCart() {
   }, []);
 
   return (
-    <div className="text-brand-red font-['Avenir-Book'] mx-4 lg:mx-28 mt-8 mb-20">
+    <div className="text-brand-[#613D2B] font-['Avenir-Book'] mx-4 lg:mx-28 mt-8 mb-20">
       <h4 className="font-['Avenir-Black'] font-bold text-3xl mb-8">My Cart</h4>
       {order.length > 0 ? (
         <>
@@ -146,7 +147,7 @@ function MyCart() {
                   Continue Shopping
                 </Link>
               </div>
-              <hr className="border-1 border-brand-red" />
+              <hr className="border-1 border-brand-[#613D2B]" />
               {order.map((item) => (
                 <div key={item.id} className="flex justify-between">
                   <div className="flex my-4 gap-x-4">
@@ -185,10 +186,10 @@ function MyCart() {
                   </div>
                 </div>
               ))}
-              <hr className="border-1 border-brand-red mb-12" />
+              <hr className="border-1 border-brand-[#613D2B] mb-12" />
               <div className="flex justify-between space-x-4 lg:space-x-0">
                 <div className="w-7/12 lg:w-1/2">
-                  <hr className="border-1 border-brand-red mb-5" />
+                  <hr className="border-1 border-brand-[#613D2B] mb-5" />
                   <div className="space-y-3">
                     <div className="flex justify-between">
                       <span>Subtotal</span>
@@ -210,7 +211,7 @@ function MyCart() {
                       <span>{order.length > 0 ? order.length : 0}</span>
                     </div>
                   </div>
-                  <hr className="border-brand-red my-5" />
+                  <hr className="border-brand-[#613D2B] my-5" />
                   <div className="flex justify-between font-bold">
                     <span>Total</span>
                     <span>
@@ -227,26 +228,6 @@ function MyCart() {
                     </span>
                   </div>
                 </div>
-                <label
-                  htmlFor="attachment"
-                  className="bg-pink-100 w-5/12 lg:w-4/12 border-2 border-brand-red rounded-lg flex flex-col items-center justify-center text-center gap-y-4 cursor-pointer"
-                >
-                  <img
-                    src={preview ? preview : InvoiceIcon}
-                    alt="invoices"
-                    className={(preview ? "my-4 " : null) + "max-h-40"}
-                  />
-                  <p className="text-gray-500">Attach of Transaction</p>
-                  <input
-                    form="paymentForm"
-                    id="attachment"
-                    name="attachment"
-                    type="file"
-                    required
-                    onChange={handleChange}
-                    className="sr-only"
-                  ></input>
-                </label>
               </div>
             </div>
             <div className="w-full lg:w-4/12">
@@ -266,7 +247,7 @@ function MyCart() {
                     onChange={handleChange}
                     value={fullname}
                     required
-                    className="w-full p-3 outline outline-2 outline-red-500 focus:outline-red-700 rounded-md bg-pink-100"
+                    className="w-full p-3 outline outline-2 outline-[#613D2B] focus:outline-[#613D2B] rounded-md bg-white"
                   />
                   <input
                     type="email"
@@ -275,7 +256,7 @@ function MyCart() {
                     onChange={handleChange}
                     value={email}
                     required
-                    className="w-full p-3 outline outline-2 outline-red-500 focus:outline-red-700 rounded-md bg-pink-100"
+                    className="w-full p-3 outline outline-2 outline-[#613D2B] focus:outline-[#613D2B] rounded-md bg-white"
                   />
                   <input
                     type="tel"
@@ -284,12 +265,12 @@ function MyCart() {
                     onChange={handleChange}
                     value={phone}
                     required
-                    className="w-full p-3 outline outline-2 outline-red-500 focus:outline-red-700 rounded-md bg-pink-100"
+                    className="w-full p-3 outline outline-2 outline-[#613D2B] focus:outline-[#613D2B] rounded-md bg-white"
                   />
                   <textarea
                     name="address"
                     id="address"
-                    className="w-full p-3 outline outline-2 outline-red-500 focus:outline-red-700 rounded-md bg-pink-100"
+                    className="w-full p-3 outline outline-2 outline-[#613D2B] focus:outline-[#613D2B] rounded-md bg-white"
                     rows={5}
                     placeholder="Address"
                     onChange={handleChange}
@@ -299,7 +280,7 @@ function MyCart() {
                 </div>
                 <button
                   type="submit"
-                  className="w-full py-2 rounded-md text-white text-center bg-brand-red"
+                  className="w-full py-2 rounded-md text-white text-center bg-[#613D2B]"
                 >
                   Pay
                 </button>

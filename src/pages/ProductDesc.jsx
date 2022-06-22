@@ -134,10 +134,16 @@ export default function ProductDesc({ item }) {
         </div>
         <div className="text w-full lg:w-7/12">
           <div className="mb-10">
-            <h1 className="text-brand-red text-2xl lg:text-4xl font-extrabold font-['Avenir-Black'] mb-4">
+            <h1 className="text-[#613D2B] text-2xl lg:text-4xl font-extrabold font-['Avenir-Black'] mb-4">
               {product?.title}
             </h1>
-            <p className="text-brand-red text-xl">
+            <h1 className="text-[#613D2B] text-sm lg:text-xl font-extrabold font-['Avenir-Black'] mb-4">
+              Stock : {product?.stock}
+            </h1>
+            <h1 className="text-black text-sm lg:text-md font-light mb-4">
+              {product?.desc}
+            </h1>
+            <p className="text-[#613D2B] text-xl">
               {rupiahFormat.convert(product?.price)}
             </p>
           </div>
@@ -146,17 +152,17 @@ export default function ProductDesc({ item }) {
             <button
               type="button"
               onClick={decrement}
-              className="bg-brand-pink px-4 py-2 text-brand-red rounded-md active:bg-brand-red active:text-brand-pink"
+              className="bg-brand-pink px-4 py-2 text-[#613D2B] rounded-md active:bg-[#613D2B] active:text-[#b18671]"
             >
               -
             </button>
-            <span className="px-6 py-2 text-brand-red font-bold">
+            <span className="px-6 py-2 text-[#613D2B] font-bold">
               {quantity}
             </span>
             <button
               type="button"
               onClick={increment}
-              className="bg-brand-pink px-4 py-2 text-brand-red rounded-md active:bg-brand-red active:text-brand-pink"
+              className="bg-brand-pink px-4 py-2 text-[#613D2B] rounded-md active:bg-[#613D2B] active:text-brand-pink"
             >
               +
             </button>
@@ -164,7 +170,7 @@ export default function ProductDesc({ item }) {
 
           <button
             onClick={handleSubmit}
-            className="w-full bg-red-600 text-white py-2 rounded-md hover:bg-brand-red"
+            className="w-full bg-[#613D2B] text-white py-2 rounded-md hover:bg-[#613D2B]"
           >
             Add To Cart
           </button>
