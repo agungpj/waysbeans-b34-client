@@ -80,7 +80,7 @@ export default function AddProduct() {
       } else {
         const alert = (
           <div
-            className="flex justify-center items-center bg-red-600 text-white text-sm font-bold px-4 py-3"
+            className="flex justify-center items-center bg-[#613D2B] text-white text-sm font-bold px-4 py-3"
             role="alert"
           >
             <p>Error. Try Again</p>
@@ -97,7 +97,7 @@ export default function AddProduct() {
   return (
     <div className="flex flex-col lg:flex-row justify-between mx-4 lg:mx-28 my-10">
       <div className="w-full lg:w-7/12">
-        <h4 className="text-3xl lg:text-5xl font-bold font-['Avenir-Black'] text-brand-red mb-4">
+        <h4 className="text-3xl lg:text-5xl font-bold font-['Avenir-Black'] text-[#613D2B] mb-4">
           Add New Product
         </h4>
         {message && message}
@@ -112,7 +112,7 @@ export default function AddProduct() {
             value={title}
             required
             placeholder="Product Name"
-            className="w-full p-3 outline outline-2 outline-red-500 focus:outline-red-700 rounded-md bg-pink-100"
+            className="w-full p-3 outline outline-2 outline-[#613D2B] focus:outline-[#5b3928] rounded-md bg-pink-100"
           />
           <input
             type="text"
@@ -121,7 +121,7 @@ export default function AddProduct() {
             value={desc}
             required
             placeholder="Product Name"
-            className="w-full p-3 outline outline-2 outline-red-500 focus:outline-red-700 rounded-md bg-pink-100"
+            className="w-full p-3 outline outline-2 outline-[#613D2B] focus:outline-[#5b3928] rounded-md bg-pink-100"
           />
           <input
             type="number"
@@ -130,7 +130,7 @@ export default function AddProduct() {
             value={stock}
             required
             placeholder="Price (Rp.)"
-            className="w-full p-3 outline outline-2 outline-red-500 focus:outline-red-700 rounded-md bg-pink-100"
+            className="w-full p-3 outline outline-2 outline-[#613D2B] focus:outline-[#5b3928] rounded-md bg-pink-100"
           />
           <input
             type="number"
@@ -139,11 +139,11 @@ export default function AddProduct() {
             value={price}
             required
             placeholder="Price (Rp.)"
-            className="w-full p-3 outline outline-2 outline-red-500 focus:outline-red-700 rounded-md bg-pink-100"
+            className="w-full p-3 outline outline-2 outline-[#613D2B] focus:outline-[#5b3928] rounded-md bg-pink-100"
           />
           <label
             htmlFor="image"
-            className="block text-left w-full p-3 outline outline-2 cursor-pointer outline-red-500 focus:outline-red-700 rounded-md bg-pink-100"
+            className="block text-left w-full p-3 outline outline-2 cursor-pointer outline-[#613D2B] focus:outline-[#5b3928] rounded-md bg-pink-100"
           >
             <div className="flex justify-between">
               <p className="text-sm opacity-100 font-normal text-gray-400">
@@ -162,7 +162,7 @@ export default function AddProduct() {
           </label>
           <button
             type="submit"
-            className="w-full lg:w-9/12 py-2 rounded-md text-white text-center bg-brand-red"
+            className="w-full lg:w-9/12 py-2 rounded-md text-white text-center bg-[#613D2B]"
           >
             Add Product
           </button>
