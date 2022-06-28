@@ -11,7 +11,7 @@ import ToppingIcon from "../assets/images/icons/topping-icon.png";
 import UploadIcon from "../assets/images/icons/upload.png";
 import userIcon from "../assets/images/icons/user-icon.png";
 
-import JumbotronBg from "../assets/images/jumbotron/Jumbotron.svg";
+import JumbotronBg from "../assets/images/jumbotron/Jumbotron.png";
 
 import IceCoffeePalmSugar from "../assets/images/products/ice-coffee-palm-sugar.png";
 import IceCoffeeGreenTea from "../assets/images/products/ice-coffee-green-tea.png";
